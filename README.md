@@ -169,3 +169,10 @@ flutter packages pub run build_runner build --delete-conflicting-outputs
 - Delete assets from `assets/<asset types>`
 - Run `flutter pub run build_runner build` in console
 - `lib/gen/assets` will be updated with currently available assets.
+
+# Generate splash screen
+flutter pub run flutter_native_splash:create
+
+# Generate app icon
+flutter pub get
+flutter pub run flutter_launcher_icons:main
