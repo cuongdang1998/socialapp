@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:social_app/presentation/home/home_route.dart';
 import 'package:social_app/presentation/login/login_route.dart';
+import 'package:social_app/presentation/main_screen/main_route.dart';
 
 enum RouteDefine {
+  MainScreen,
   LoginScreen,
   HomeScreen,
 }
@@ -10,6 +12,7 @@ enum RouteDefine {
 class AppRouting {
   static MaterialPageRoute generateRoute(RouteSettings settings) {
     final routes = <String, WidgetBuilder>{
+      RouteDefine.MainScreen.name: (_) => MainRoute.route,
       RouteDefine.LoginScreen.name: (_) => LoginRoute.route,
       RouteDefine.HomeScreen.name: (_) => HomeRoute.route,
     };

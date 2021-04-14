@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:get/get.dart';
 
 import 'config/app_config.dart';
 import 'config/navigation_util.dart';
@@ -32,11 +33,11 @@ void main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Social App',
       navigatorKey: NavigationUtil.rootKey,
       debugShowCheckedModeBanner: false,
-      initialRoute: RouteDefine.LoginScreen.name,
+      initialRoute: RouteDefine.MainScreen.name,
       onGenerateRoute: AppRouting.generateRoute,
       theme: ThemeData(
         primarySwatch: Colors.blue,
