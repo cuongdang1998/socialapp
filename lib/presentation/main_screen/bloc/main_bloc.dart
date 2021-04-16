@@ -11,7 +11,11 @@ class MainBloc extends Bloc<MainEvent, MainState> {
     selectedItem = menuItems.first;
   }
 
-  var menuItems = [BottomMenuItem.HOME, BottomMenuItem.FEED];
+  var menuItems = [
+    BottomMenuItem.HOME,
+    BottomMenuItem.FEED,
+    BottomMenuItem.CHAT
+  ];
 
   PageController pageController = PageController(initialPage: 0);
 

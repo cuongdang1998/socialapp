@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:social_app/config/colors.dart';
+import 'package:social_app/config/themes.dart';
 import 'package:social_app/presentation/main_screen/bloc/main_bloc.dart';
 import 'package:social_app/presentation/main_screen/ui/widget/menu_item.dart';
 
@@ -35,6 +37,15 @@ class _BottomMenuWidgetState extends State<BottomMenuWidget> {
       },
       builder: (context, state) {
         return Container(
+          decoration: BoxDecoration(
+            borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
+            ),
+            color: AppTheme().isLightMode(context)
+                ? AppColor().lightBottomBarColor
+                : AppColor().blackBottomBarColor,
+          ),
           height: 80,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,

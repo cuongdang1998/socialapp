@@ -5,13 +5,13 @@ import 'package:get/get.dart';
 
 import 'config/app_config.dart';
 import 'config/navigation_util.dart';
+import 'config/themes.dart';
 import 'generated/l10n.dart';
 import 'utils/di/injection.dart';
 import 'utils/route/app_routing.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
   // Listen for flavor triggered by iOS / android build
   await const MethodChannel('flavor').invokeMethod<String>('getFlavor').then(
     (String flavor) async {
@@ -39,16 +39,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: RouteDefine.MainScreen.name,
       onGenerateRoute: AppRouting.generateRoute,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        fontFamily: "RaleWay",
-        textTheme: const TextTheme(
-          headline1: TextStyle(fontSize: 42.0, fontWeight: FontWeight.bold),
-          headline2: TextStyle(fontSize: 36.0, fontStyle: FontStyle.normal),
-          bodyText2: TextStyle(fontSize: 33.0),
-          // Using Text Theme with Theme.of(context).textTheme.bodyText2,
-        ),
-      ),
+      theme: AppTheme().lightTheme(context),
+      darkTheme: AppTheme().darkTheme(context),
+      themeMode: ThemeMode.system,
       localizationsDelegates: [
         S.delegate,
         GlobalMaterialLocalizations.delegate,

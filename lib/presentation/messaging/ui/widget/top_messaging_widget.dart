@@ -57,9 +57,12 @@ class TopMessageBarWidget extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  userName,
-                  style: AppTextStyle().userMessageNameStyle,
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 2),
+                  child: Text(
+                    userName,
+                    style: AppTextStyle().userMessageNameStyle,
+                  ),
                 ),
                 Text(
                   isActive ? 'Active Now' : 'Active ${minute}m ago',

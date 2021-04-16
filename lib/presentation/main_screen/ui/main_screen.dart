@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:social_app/config/themes.dart';
 import 'package:social_app/presentation/main_screen/bloc/main_bloc.dart';
 import 'package:social_app/presentation/main_screen/ui/widget/bottom_menu_model.dart';
 import 'widget/bottom_menu_widget.dart';

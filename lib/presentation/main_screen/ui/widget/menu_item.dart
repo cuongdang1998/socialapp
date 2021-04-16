@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:social_app/config/colors.dart';
 import 'package:social_app/config/styles.dart';
+import 'package:social_app/config/themes.dart';
 import 'package:social_app/gen/assets.gen.dart';
 
 typedef ButtonCallback = void Function();
@@ -34,18 +35,22 @@ class MenuItem extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             icon.image(
-              color:
-                  isSelected ? AppColor().focusColor : AppColor().unFocusColor,
+              color: getColor(context),
               height: 30,
               width: 30,
+              fit: BoxFit.contain
             ),
             Padding(
               padding: const EdgeInsets.only(top: 5),
               child: Text(
                 title,
                 style: isSelected
-                    ? AppTextStyle().focusBottomBarTextStyle
-                    : AppTextStyle().unFocusBottomBarTextStyle,
+                    ? AppTextStyle().focusBottomBarTextStyle.copyWith(
+                          color: getColor(context),
+                        )
+                    : AppTextStyle().unFocusBottomBarTextStyle.copyWith(
+                          color: getColor(context),
+                        ),
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
                 softWrap: true,
@@ -55,5 +60,15 @@ class MenuItem extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Color getColor(context) {
+    return AppTheme().isLightMode(context)
+        ? (isSelected
+            ? AppColor().focusColorLightMode
+            : AppColor().unFocusColorLightMode)
+        : (isSelected
+            ? AppColor().focusColorDarkMode
+            : AppColor().unFocusColorDarkMode);
   }
 }
